@@ -173,6 +173,10 @@ local function YouLoseTransition()
     composer.gotoScene( "you_lose" )
 end
 
+local function YouWinTransition()
+    composer.gotoScene( "you_win" )
+end
+
 local function onCollision( self, event )
     -- for testing purposes
     --print( event.target )        --the first object in the collision
@@ -239,7 +243,11 @@ local function onCollision( self, event )
         if (event.target.myName == "door") then
             --check to see if the user has answered 5 questions
             if (questionsAnswered == 3) then
+                composer.gotoScene ( "you_win" )
+                print(questionsAnswered)
+
                 -- after getting 3 questions right, go to the you win screen
+
             end
         end        
 
@@ -299,6 +307,7 @@ local function AddPhysicsBodies()
     physics.addBody(leftW, "static", {density=1, friction=0.3, bounce=0.2} )
     physics.addBody(topW, "static", {density=1, friction=0.3, bounce=0.2} )
     physics.addBody(floor, "static", {density=1, friction=0.3, bounce=0.2} )
+    physics.addBody(rightW, "static", {density=1, friction=0.3, bounce=0.2} )
 
     physics.addBody(ball1, "static",  {density=0, friction=0, bounce=0} )
     physics.addBody(ball2, "static",  {density=0, friction=0, bounce=0} )
@@ -325,6 +334,7 @@ local function RemovePhysicsBodies()
     physics.removeBody(leftW)
     physics.removeBody(topW)
     physics.removeBody(floor)
+    physics.removeBody(rightW)
  
 end
 
@@ -489,6 +499,7 @@ function scene:create( event )
     leftW = display.newLine( 0, 0, 0, display.contentHeight)
     leftW.isVisible = true
 
+    
     -- Insert objects into the scene group in order to ONLY be associated with this scene
     sceneGroup:insert( leftW )
 
@@ -530,8 +541,8 @@ function scene:create( event )
 
 
     ball3 = display.newImageRect ("Images/SoccerBall.png", 70, 70)
-    ball3.x = 500
-    ball3.y = 500
+    ball3.x = 950
+    ball3.y = 135
     ball3.myName = "ball3"
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
