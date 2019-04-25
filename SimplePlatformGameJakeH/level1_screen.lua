@@ -243,11 +243,9 @@ local function onCollision( self, event )
         if (event.target.myName == "door") then
             --check to see if the user has answered 5 questions
             if (questionsAnswered == 3) then
-                composer.gotoScene ( "you_win" )
+                composer.gotoScene("you_win")
                 print(questionsAnswered)
-
                 -- after getting 3 questions right, go to the you win screen
-
             end
         end        
 
