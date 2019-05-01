@@ -46,12 +46,12 @@ local userAnswer
 local answerboxAlreadyTouched = false
 local alternateAnswerBox1AlreadyTouched = false
 local alternateAnswerBox2AlreadyTouched = false
-
+local alternateAnswerBox3AlreadyTouched = false
 --create textboxes holding answer and alternate answers 
 local answerbox
 local alternateAnswerBox1
 local alternateAnswerBox2
-
+local alternateAnswerBox3
 -- create variables that will hold the previous x- and y-positions so that 
 -- each answer will return back to its previous position after it is moved
 local answerboxPreviousY
