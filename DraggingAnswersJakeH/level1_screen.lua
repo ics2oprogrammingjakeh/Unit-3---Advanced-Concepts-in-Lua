@@ -69,6 +69,8 @@ local userAnswerBoxPlaceholder
 local correctSound
 local booSound
 
+local lives
+local livestext
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -178,6 +180,24 @@ local function PositionAnswers()
 end
 
 -- Transitioning Function to YouWin screen
+ if (answer ~= tonumber(userAnswer)) then
+            -- decrease a life
+            wrong.isVisible = true
+            lives = lives - 1
+
+            -- call RestartScene after 1 second
+            timer.performWithDelay( 1000, RestartScene )
+        end       
+
+
+
+
+
+
+
+
+
+
 local function YouWinTransitionLevel1( )
     composer.gotoScene("you_win", {effect = "fade", time = 500})
 end

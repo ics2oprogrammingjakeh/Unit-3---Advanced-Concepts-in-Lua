@@ -34,8 +34,8 @@ local backButton
 -----------------------------------------------------------------------------------------
 
 -- Creating Transitioning Function back to main menu
-local function Transition_CrossFade( )
-    composer.gotoScene( "crossFade Screen", transitionOptions_CrossFade )
+local function BackTransition( )
+    composer.gotoScene( "main_menu", {effect = "flipFadeoutIn", time = 500})
 end
 
 
@@ -54,7 +54,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image and set it to the center of the screen
-    bkg_image = display.newImageRect("Images/Credits Screen.png", display.contentWidth, display.contentHeight)
+    bkg_image = display.newImageRect("Images/CreditsScreenAndyDF@2x.png", display.contentWidth, display.contentHeight)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
